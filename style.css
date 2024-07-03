@@ -7,10 +7,40 @@ body {
 .container {
     background-color: aliceblue;
     border: 1px lightgrey solid;
+    border-radius: 15px;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 h1 {
     text-transform: uppercase;
+    font-size: 3rem;
+}
+
+h2 {
+    color: red;
+    transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(3);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(3);
+	}
+}
+
+input {
+    background-color: rgba(0, 0, 255, 0.1);
+    border: 1px lightcoral solid;
+    border-radius: 15px;
 }
 
 input, button {
@@ -35,4 +65,11 @@ button:active {
 
 p {
     margin: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
 }
