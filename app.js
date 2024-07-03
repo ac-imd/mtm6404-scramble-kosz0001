@@ -43,24 +43,24 @@ const initialWords = ['dragons', 'fairy', 'seashells', 'surfboard', 'reggaeton',
 //3 I need to create the app component with all the variables of states such as the initial words, the current word being seen, the word in a scrambled state, the points, the strikes, the passes
 
 function App () {
-  const [words, setWords] = React.useState(initialWords)
-  const [currentWord, setCurrentWord] = React.useState('')
-  const [scrambledWord, setScrambledWord] = React.useState('')
-  const [points, setPoints] = React.useState(0)
-  const [strikes, setStrikes] = React.useState(0)
-  const [passes, setPasses] = React.useState(3)
-  const [gameOver, setGameOver] = React.useState(false)
+  const [words, setWords] = React.useState(initialWords);
+  const [currentWord, setCurrentWord] = React.useState('');
+  const [scrambledWord, setScrambledWord] = React.useState('');
+  const [points, setPoints] = React.useState(0);
+  const [strikes, setStrikes] = React.useState(0);
+  const [passes, setPasses] = React.useState(3); 
+  const [gameOver, setGameOver] = React.useState(false);
 
 
 //4 I need to allow the first scrambled word to be seen, with the result from a correct guess, an incorrect guess, and the game over when the 3 strikes are hit
 
   React.useEffect(() => {
     if (words.length > 0 && !currentWord) {
-      const initialWord = words[0]
-      setCurrentWord(initialWord)
-      setScrambledWord(shuffle(initialWord))
+      const initialWord = words[0];
+      setCurrentWord(initialWord);
+      setScrambledWord(shuffle(initialWord));
     }
-  }, [words, currentWord])
+  }, [words, currentWord]);
 
 //will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
 
@@ -148,3 +148,7 @@ function App () {
     </div>
   )
 }
+
+
+
+ReactDOM.render(<App />, document.getElementById('root'))
