@@ -136,9 +136,10 @@ return (
       <button></button>
     </div>
     <div>
-      <h2></h2>
-      <p></p>
-      <button></button>
+      <h2>Game Over!!!</h2>
+      <p>Points</p>
+      <p>Strikes</p>
+      <button>Play Again?</button>
     </div>
   </div>
 )
