@@ -120,7 +120,7 @@ const initialWords = ['dragons', 'fairy', 'seashells', 'surfboard', 'reggaeton',
 //7 I will need to create the HTML template for the layout
 
     return (
-      <div className="App">
+      <div>
         <h1>Let's Play Scramble!</h1>
         {!gameOver ? (
           <div>
