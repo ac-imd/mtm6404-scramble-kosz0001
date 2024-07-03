@@ -65,11 +65,14 @@ const handleGuess = (event) => {
   event.preventDefault()
   const guess = event.target.elements.guess.value.trim().toLowerCase()
   if (guess === currentWord.toLowerCase()) {
+    //this happens when you guess correctly
     setPoints(points + 1)
     handleNextWord()
   } else {
+    //this happens when the guess is wrong
     setStrikes(strikes + 1)
     if (strikes === 2) {
+      //this makes the game go game over because 3 strikes are reached
       setGameOver(true)
     }
   }
