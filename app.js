@@ -84,6 +84,27 @@ const handleGuess = (event) => {
 
 //5 the next shuffled word should be seen and the previous word should disappear and the game over when I've exhausted my word list
 
+const handlePass = () => {
+  if (passes > 0) {
+    setPasses(passes - 1)
+    handleNextWord()
+  }
+}
+
+const handleNextWord = () => {
+  //this will remove the past word from the array and add the new word
+  const remainingWords = words.filter(word => word !== currentWord)
+  if (remainingWords.length > 0) {
+    const nextWord = remainingWords[0]
+    setCurrentWord(nextWord)
+    setScrambledWord(shuffle(nextWord))
+    setWords(remainingWords)
+  } else {
+    //this will be the case when there are no more words, and it is now game over
+    setGameOver(true)
+  }
+}
+
 //6 I will need to reset the game with a button
 
 //7 I will need to create the HTML template for the layout
