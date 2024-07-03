@@ -33,3 +33,18 @@ function shuffle (src) {
 /**********************************************
  * YOUR CODE BELOW
  **********************************************/
+
+//1 According to the video, I need to have a word from the array shuffled (already done above^)
+
+//2 I need a list of 10 words to shuffle: 1 dragons, 2 fairy, 3 seashells, 4 surfboard, 5 reggaeton, 6 violin, 7 sushi, 8 hibiscus, 9 family, 10 wrath
+
+//3 I need to create the app component with all the variables of states such as the initial words, the current word being seen, the word in a scrambled state, the points, the strikes, the passes
+
+//4 I need to allow the first scrambled word to be seen, with the result from a correct guess, an incorrect guess, and the game over when the 3 strikes are hit
+//will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
+
+//5 the next shuffled word should be seen and the previous word should disappear and the game over when I've exhausted my word list
+
+//6 I will need to reset the game with a button
+
+//7 I will need to create the HTML template for the layout
