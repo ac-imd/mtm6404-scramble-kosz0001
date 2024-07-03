@@ -49,6 +49,7 @@ function App () {
   const [points, setPoints] = React.useState(0)
   const [strikes, setStrikes] = React.useState(0)
   const [passes, setPasses] = React.useState(3)
+  const [gameOver, setGameOver] = React.useState(false)
 }
 
 //4 I need to allow the first scrambled word to be seen, with the result from a correct guess, an incorrect guess, and the game over when the 3 strikes are hit
