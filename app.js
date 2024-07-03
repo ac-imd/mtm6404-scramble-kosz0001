@@ -61,6 +61,8 @@ React.useEffect(() => {
   }
 }, [words, currentWord])
 
+//will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
+
 const handleGuess = (event) => {
   event.preventDefault()
   const guess = event.target.elements.guess.value.trim().toLowerCase()
@@ -78,8 +80,6 @@ const handleGuess = (event) => {
   }
   event.target.reset()
 }
-
-//will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
 
 //5 the next shuffled word should be seen and the previous word should disappear and the game over when I've exhausted my word list
 
