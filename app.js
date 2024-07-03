@@ -128,6 +128,10 @@ return (
       <p>Passes remaining</p>
       <p>Word</p>
       <form>
+        <label>
+          <input></input>
+          <button></button>
+        </label>
       </form>
       <button></button>
     </div>
