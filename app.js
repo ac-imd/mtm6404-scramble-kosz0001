@@ -122,24 +122,28 @@ const handleReset = () => {
 return (
   <div>
     <h1>Let's Play Scramble!</h1>
-    <div>
-      <p>Points</p>
-      <p>Strikes</p>
-      <p>Passes remaining</p>
-      <p>Word</p>
-      <form>
+    {!gaveOver ? (
+      <div>
+      <p>Points: {points}</p>
+      <p>Strikes: {strikes}</p>
+      <p>Passes remaining: {passes}</p>
+      <p>Scrambled Word: {scrambledWords}</p>
+      <form onSubmit={handleGuess}>
         <label>
-          <input></input>
-          <button></button>
+          Guess:
+          <input type="text" name ="guess" required></input>
         </label>
+        <button type="submit">Guess</button>
       </form>
-      <button></button>
+      <button onClick={handlePass} disabled={passes === 0}>Pass</button>
     </div>
-    <div>
+    ) : (
+      <div>
       <h2>Game Over!!!</h2>
-      <p>Points</p>
-      <p>Strikes</p>
-      <button>Play Again?</button>
+      <p>Points: {points}</p>
+      <p>Strikes: {strikes}</p>
+      <button onClick={handleReset}>Play Again?</button>
     </div>
+    )}
   </div>
 )
