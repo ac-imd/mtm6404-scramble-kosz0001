@@ -105,6 +105,6 @@ const handleNextWord = () => {
   }
 }
 
-//6 I will need to reset the game with a button
+//6 I will need to reset the game with a button & clear from local storage
 
 //7 I will need to create the HTML template for the layout
