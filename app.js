@@ -38,115 +38,115 @@ function shuffle (src) {
 
 //2 I need a list of 10 words to shuffle: 1 dragons, 2 fairy, 3 seashells, 4 surfboard, 5 reggaeton, 6 violin, 7 sushi, 8 hibiscus, 9 family, 10 wrath
 
-const initialWords = ['dragons', 'fairy', 'seashells', 'surfboard', 'reggaeton', 'violins', 'sushi', 'hibiscus', 'family', 'wrath']
+  const initialWords = ['dragons', 'fairy', 'seashells', 'surfboard', 'reggaeton', 'violins', 'sushi', 'hibiscus', 'family', 'wrath']
 
 //3 I need to create the app component with all the variables of states such as the initial words, the current word being seen, the word in a scrambled state, the points, the strikes, the passes
 
-function App () {
-  const [words, setWords] = React.useState(initialWords);
-  const [currentWord, setCurrentWord] = React.useState('');
-  const [scrambledWord, setScrambledWord] = React.useState('');
-  const [points, setPoints] = React.useState(0);
-  const [strikes, setStrikes] = React.useState(0);
-  const [passes, setPasses] = React.useState(3); 
-  const [gameOver, setGameOver] = React.useState(false);
+  function App () {
+    const [words, setWords] = React.useState(initialWords);
+    const [currentWord, setCurrentWord] = React.useState('');
+    const [scrambledWord, setScrambledWord] = React.useState('');
+    const [points, setPoints] = React.useState(0);
+    const [strikes, setStrikes] = React.useState(0);
+    const [passes, setPasses] = React.useState(3); 
+    const [gameOver, setGameOver] = React.useState(false);
 
 
 //4 I need to allow the first scrambled word to be seen, with the result from a correct guess, an incorrect guess, and the game over when the 3 strikes are hit
 
-  React.useEffect(() => {
-    if (words.length > 0 && !currentWord) {
-      const initialWord = words[0];
-      setCurrentWord(initialWord);
-      setScrambledWord(shuffle(initialWord));
-    }
-  }, [words, currentWord]);
+    React.useEffect(() => {
+      if (words.length > 0 && !currentWord) {
+        const initialWord = words[0];
+        setCurrentWord(initialWord);
+        setScrambledWord(shuffle(initialWord));
+      }
+    }, [words, currentWord]);
 
 //will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
 
-  const handleGuess = (event) => {
-    event.preventDefault()
-    const guess = event.target.elements.guess.value.trim().toLowerCase()
-    if (guess === currentWord.toLowerCase()) {
-      //this happens when you guess correctly
-      setPoints(points + 1)
-      handleNextWord()
-    } else {
-      //this happens when the guess is wrong
-      setStrikes(strikes + 1)
-      if (strikes === 2) {
-        //this makes the game go game over because 3 strikes are reached
-        setGameOver(true)
+    const handleGuess = (event) => {
+      event.preventDefault()
+      const guess = event.target.elements.guess.value.trim().toLowerCase()
+      if (guess === currentWord.toLowerCase()) {
+        //this happens when you guess correctly
+        setPoints(points + 1)
+        handleNextWord()
+      } else {
+        //this happens when the guess is wrong
+        setStrikes(strikes + 1)
+        if (strikes === 2) {
+          //this makes the game go game over because 3 strikes are reached
+          setGameOver(true)
+        }
       }
+      event.target.reset()
     }
-    event.target.reset()
-  }
 
 //5 the next shuffled word should be seen and the previous word should disappear and the game over when I've exhausted my word list
 
-  const handlePass = () => {
-    if (passes > 0) {
-      setPasses(passes - 1)
-      handleNextWord()
+    const handlePass = () => {
+      if (passes > 0) {
+        setPasses(passes - 1)
+        handleNextWord()
+      }
     }
-  }
 
-  const handleNextWord = () => {
-    //this will remove the past word from the array and add the new word
-    const remainingWords = words.filter(word => word !== currentWord)
-    if (remainingWords.length > 0) {
-      const nextWord = remainingWords[0]
-      setCurrentWord(nextWord)
-      setScrambledWord(shuffle(nextWord))
-      setWords(remainingWords)
-    } else {
-      //this will be the case when there are no more words, and it is now game over
-      setGameOver(true)
+    const handleNextWord = () => {
+      //this will remove the past word from the array and add the new word
+      const remainingWords = words.filter(word => word !== currentWord)
+      if (remainingWords.length > 0) {
+        const nextWord = remainingWords[0]
+        setCurrentWord(nextWord)
+        setScrambledWord(shuffle(nextWord))
+        setWords(remainingWords)
+      } else {
+        //this will be the case when there are no more words, and it is now game over
+        setGameOver(true)
+      }
     }
-  }
 
 //6 I will need to reset the game with a button & clear from local storage
 
-  const handleReset = () => {
-    setWords(initialWords)
-    setCurrentWord('')
-    setScrambledWord('')
-    setPoints(0)
-    setStrikes(0)
-    setPasses(3)
-    setGameOver(false)
-  }
+    const handleReset = () => {
+      setWords(initialWords)
+      setCurrentWord('')
+      setScrambledWord('')
+      setPoints(0)
+      setStrikes(0)
+      setPasses(3)
+      setGameOver(false)
+    }
 
 //7 I will need to create the HTML template for the layout
 
-  return (
-    <div>
-      <h1>Let's Play Scramble!</h1>
-      {!gaveOver ? (
-        <div>
-        <p>Points: {points}</p>
-        <p>Strikes: {strikes}</p>
-        <p>Passes remaining: {passes}</p>
-        <p>Scrambled Word: {scrambledWords}</p>
-        <form onSubmit={handleGuess}>
-          <label>
-            Guess:
-            <input type="text" name ="guess" required></input>
-          </label>
-          <button type="submit">Guess</button>
-        </form>
-        <button onClick={handlePass} disabled={passes === 0}>Pass</button>
+    return (
+      <div>
+        <h1>Let's Play Scramble!</h1>
+        {!gaveOver ? (
+          <div>
+          <p>Points: {points}</p>
+          <p>Strikes: {strikes}</p>
+          <p>Passes remaining: {passes}</p>
+          <p>Scrambled Word: {scrambledWords}</p>
+          <form onSubmit={handleGuess}>
+            <label>
+              Guess:
+              <input type="text" name ="guess" required></input>
+            </label>
+            <button type="submit">Guess</button>
+          </form>
+          <button onClick={handlePass} disabled={passes === 0}>Pass</button>
+        </div>
+        ) : (
+          <div>
+          <h2>Game Over!!!</h2>
+          <p>Points: {points}</p>
+          <p>Strikes: {strikes}</p>
+          <button onClick={handleReset}>Play Again?</button>
+        </div>
+        )}
       </div>
-      ) : (
-        <div>
-        <h2>Game Over!!!</h2>
-        <p>Points: {points}</p>
-        <p>Strikes: {strikes}</p>
-        <button onClick={handleReset}>Play Again?</button>
-      </div>
-      )}
-    </div>
-  )
+    )
 }
 
 
