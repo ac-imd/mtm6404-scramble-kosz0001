@@ -42,6 +42,10 @@ const initialWords = ['dragons', 'fairy', 'seashells', 'surfboard', 'reggaeton',
 
 //3 I need to create the app component with all the variables of states such as the initial words, the current word being seen, the word in a scrambled state, the points, the strikes, the passes
 
+function App () {
+  
+}
+
 //4 I need to allow the first scrambled word to be seen, with the result from a correct guess, an incorrect guess, and the game over when the 3 strikes are hit
 //will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
 
