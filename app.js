@@ -118,3 +118,15 @@ const handleReset = () => {
 }
 
 //7 I will need to create the HTML template for the layout
+
+return (
+  <div>
+    <h1></h1>
+    <div>
+      <p></p>
+      <form>
+      </form>
+      <button></button>
+    </div>
+  </div>
+)
