@@ -107,4 +107,14 @@ const handleNextWord = () => {
 
 //6 I will need to reset the game with a button & clear from local storage
 
+const handleReset = () => {
+  setWords(initialWords)
+  setCurrentWord('')
+  setScrambledWord('')
+  setPoints(0)
+  setStrikes(0)
+  setPasses(3)
+  setGameOver(false)
+}
+
 //7 I will need to create the HTML template for the layout
