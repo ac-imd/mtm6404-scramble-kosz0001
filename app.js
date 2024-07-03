@@ -43,7 +43,12 @@ const initialWords = ['dragons', 'fairy', 'seashells', 'surfboard', 'reggaeton',
 //3 I need to create the app component with all the variables of states such as the initial words, the current word being seen, the word in a scrambled state, the points, the strikes, the passes
 
 function App () {
-  
+  const [words, setWords] = React.useState(initialWords)
+  const [currentWord, setCurrentWord] = React.useState('')
+  const [scrambledWord, setScrambledWord] = React.useState('')
+  const [points, setPoints] = React.useState(0)
+  const [strikes, setStrikes] = React.useState(0)
+  const [passes, setPasses] = React.useState(3)
 }
 
 //4 I need to allow the first scrambled word to be seen, with the result from a correct guess, an incorrect guess, and the game over when the 3 strikes are hit
