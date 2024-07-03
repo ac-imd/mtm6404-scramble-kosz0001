@@ -55,11 +55,26 @@ function App () {
 
 React.useEffect(() => {
   if (words.length > 0 && !currentWord) {
-    const initialWord = words[0];
-    setCurrentWord(initialWord);
-    setScrambledWord(shuffle(initialWord));
+    const initialWord = words[0]
+    setCurrentWord(initialWord)
+    setScrambledWord(shuffle(initialWord))
   }
 }, [words, currentWord])
+
+const handleGuess = (event) => {
+  event.preventDefault()
+  const guess = event.target.elements.guess.value.trim().toLowerCase()
+  if (guess === currentWord.toLowerCase()) {
+    setPoints(points + 1)
+    handleNextWord()
+  } else {
+    setStrikes(strikes + 1)
+    if (strikes === 2) {
+      setGameOver(true)
+    }
+  }
+  event.target.reset()
+}
 
 //will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
 
