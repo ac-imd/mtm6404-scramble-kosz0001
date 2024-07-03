@@ -121,9 +121,12 @@ const handleReset = () => {
 
 return (
   <div>
-    <h1></h1>
+    <h1>Let's Play Scramble!</h1>
     <div>
-      <p></p>
+      <p>Points</p>
+      <p>Strikes</p>
+      <p>Passes remaining</p>
+      <p>Word</p>
       <form>
       </form>
       <button></button>
