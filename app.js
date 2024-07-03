@@ -52,6 +52,15 @@ function App () {
 }
 
 //4 I need to allow the first scrambled word to be seen, with the result from a correct guess, an incorrect guess, and the game over when the 3 strikes are hit
+
+React.useEffect(() => {
+  if (words.length > 0 && !currentWord) {
+    const initialWord = words[0];
+    setCurrentWord(initialWord);
+    setScrambledWord(shuffle(initialWord));
+  }
+}, [words, currentWord])
+
 //will also need to continuously add in what happens when the pass button is hit and how the pass count will go down by 1
 
 //5 the next shuffled word should be seen and the previous word should disappear and the game over when I've exhausted my word list
